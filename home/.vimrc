@@ -364,11 +364,11 @@ let g:user_emmet_mode='i' " enable for insert mode
 let g:user_emmet_leader_key='<C-E>'
 
 " Search results high light
-set hlsearch
+" set hlsearch
 
 " nohlsearch shortcut
-nmap -hl :nohlsearch<cr>
-nmap +hl :set hlsearch<cr>
+" nmap -hl :nohlsearch<cr>
+" nmap +hl :set hlsearch<cr>
 
 nnoremap <leader>w :w<CR>
 nnoremap <leader>e :e<CR>
@@ -393,8 +393,8 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=2
 
-set ttyfast
-set lazyredraw
+" set ttyfast
+" set lazyredraw
 set clipboard=unnamed
 
 " Quick editing and reloading of .vimrc
