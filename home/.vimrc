@@ -7,39 +7,55 @@ set encoding=utf-8
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-git'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'spiiph/vim-space'
-Plug 'mileszs/ack.vim'
-Plug 'vim-scripts/camelcasemotion'
+Plug 'christoomey/vim-run-interactive'
+Plug 'croaky/vim-colors-github'
+Plug 'danro/rename.vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'kchmck/vim-coffee-script'
+Plug 'pbrisbin/vim-mkdir'
+Plug 'scrooloose/syntastic'
+Plug 'slim-template/vim-slim'
+Plug 'thoughtbot/vim-rspec'
+Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/ctags.vim'
+Plug 'vim-scripts/matchit.zip'
+
+Plug 'tomtom/tcomment_vim'
+Plug 'mattn/emmet-vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Lokaltog/vim-powerline'
+Plug 'godlygeek/tabular'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'altercation/vim-colors-solarized'
+Plug 'othree/html5.vim'
+Plug 'xsbeats/vim-blade'
+Plug 'Raimondi/delimitMate'
+Plug 'groenewege/vim-less'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'dikiaap/minimalist'
+Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-git'
+Plug 'airblade/vim-gitgutter'
+Plug 'christoomey/vim-tmux-navigator'
+" Plug 'tpope/vim-commentary'
+Plug 'wookayin/vim-typora'
+Plug 'wakatime/vim-wakatime'
+Plug 'posva/vim-vue'
+Plug 'digitaltoad/vim-pug'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'wavded/vim-stylus'
+Plug 'isRuslan/vim-es6'
 Plug 'vim-scripts/argtextobj.vim'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'tpope/vim-bundler'
-Plug 'kien/ctrlp.vim'
-Plug 'vim-scripts/matchit.zip'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-ragtag'
-Plug 'tpope/vim-obsession'
-Plug 'noprompt/vim-yardoc'
-Plug 'tpope/vim-eunuch'
-Plug 'mhinz/vim-startify'
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'vim-scripts/tcd.vim'
-Plug 'majutsushi/tagbar'
-Plug 'tpope/vim-dispatch'
 Plug 'bling/vim-airline'
 Plug 'edkolev/tmuxline.vim'
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/neoyank.vim'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'w0rp/ale'
+
 Plug 'tpope/vim-rails'
 Plug 'plasticboy/vim-markdown', { 'for': [ 'md', 'markdown' ] }
 Plug 'hashivim/vim-terraform', { 'for': 'tf' }
@@ -56,11 +72,57 @@ Plug 'Quramy/tsuquyomi', { 'for': 'ts' }
 Plug 'jason0x43/vim-js-indent', { 'for': 'js' }
 Plug 'tpope/vim-jdaddy', { 'for': 'json' }
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+Plug 'vim-airline/vim-airline-themes'
 
+" Orgin
+" Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-git'
+" Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+" Plug 'mileszs/ack.vim'
+" Plug 'tpope/vim-endwise'
+" Plug 'vim-scripts/argtextobj.vim'
+" Plug 'michaeljsmith/vim-indent-object'
+" Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'tpope/vim-bundler'
+" Plug 'kien/ctrlp.vim'
+" Plug 'vim-scripts/matchit.zip'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-ragtag'
+" Plug 'tpope/vim-obsession'
+Plug 'noprompt/vim-yardoc'
+Plug 'tpope/vim-eunuch'
+Plug 'mhinz/vim-startify'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'vim-scripts/tcd.vim'
+Plug 'majutsushi/tagbar'
+" Plug 'tpope/vim-dispatch'
+" Plug 'bling/vim-airline'
+" Plug 'edkolev/tmuxline.vim'
+" Plug 'vim-airline/vim-airline-themes'
+" Plug 'w0rp/ale'
+" Plug 'tpope/vim-rails'
+" Plug 'plasticboy/vim-markdown', { 'for': [ 'md', 'markdown' ] }
+" Plug 'hashivim/vim-terraform', { 'for': 'tf' }
+" Plug 'vim-ruby/vim-ruby', { 'for': 'rb' }
+" Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+" Plug 'tpope/vim-haml', { 'for': 'haml' }
+" Plug 'pangloss/vim-javascript', { 'for': 'js' }
+" Plug 'rust-lang/rust.vim', { 'for': 'rs' }
+" Plug 'cespare/vim-toml', { 'for': 'toml' }
+" Plug 'fatih/vim-go', { 'for': 'go' }
+" Plug 'rhysd/vim-go-impl', { 'for': 'go' }
+" Plug 'leafgarland/typescript-vim', { 'for': 'ts' }
+" Plug 'Quramy/tsuquyomi', { 'for': 'ts' }
+" Plug 'jason0x43/vim-js-indent', { 'for': 'js' }
+" Plug 'tpope/vim-jdaddy', { 'for': 'json' }
+" Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
+"
 call plug#end()
 
 let mapleader=","
