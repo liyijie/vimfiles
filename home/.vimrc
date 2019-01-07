@@ -427,7 +427,7 @@ nnoremap <C-l> <C-W>l
 nnoremap <C-h> <C-W>h
 
 " Toggle TagBar. I don't use it a lot, but it's helpful.
-nnoremap <leader>t :TagbarToggle<CR>
+nnoremap <leader>b :TagbarToggle<CR>
 
 " It's 'm' for make. Even though it's not running make. Deal with it.
 nnoremap <leader>m :Dispatch<CR>
