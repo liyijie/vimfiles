@@ -313,7 +313,7 @@ nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
 nnoremap <Leader>r :call RunNearestSpec()<CR>
 nnoremap <Leader>l :call RunLastSpec()<CR>
 
-let g:rspec_command = 'Dispatch rspec -f d -c {spec}'
+let g:rspec_command = 'Dispatch bundle exec rspec -f d -c {spec}'
 " let g:rspec_command = "!bundle exec rspec -f d -c {spec}"
 let g:rspec_runner = "os_x_iterm2"
 
