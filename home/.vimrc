@@ -29,7 +29,6 @@ Plug 'vim-scripts/matchit.zip'
 Plug 'tomtom/tcomment_vim'
 Plug 'mattn/emmet-vim'
 Plug 'scrooloose/nerdtree'
-Plug 'Lokaltog/vim-powerline'
 Plug 'godlygeek/tabular'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'altercation/vim-colors-solarized'
@@ -42,6 +41,7 @@ Plug 'dikiaap/minimalist'
 Plug 'mileszs/ack.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'leafgarland/typescript-vim'
 " Plug 'tpope/vim-commentary'
 Plug 'wookayin/vim-typora'
 Plug 'wakatime/vim-wakatime'
@@ -54,6 +54,9 @@ Plug 'wavded/vim-stylus'
 Plug 'isRuslan/vim-es6'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-airline/vim-airline'    " Vim powerline
+
 
 call plug#end()
 
@@ -305,8 +308,8 @@ endfunction
 " My custom normal/insert mode mappings {{{
 
 " Remap jk or to be the same as Esc to leave Insert mode.
-inoremap jk <Esc>
-inoremap jj <Esc>
+" inoremap jk <Esc>
+" inoremap jj <Esc>
 
 " vim-rspec mappings
 nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
@@ -377,7 +380,7 @@ nnoremap <leader>a :qa<CR>
 nnoremap <leader>y :!<CR>
 
 " reg past command
-nnoremap <leader>g :reg<CR>
+nnoremap <leader>\ :reg<CR>
 nnoremap <leader>" ""p"<CR>
 nnoremap <leader>0 "0p"<CR>
 nnoremap <leader>1 "1p"<CR>
@@ -593,3 +596,51 @@ autocmd BufNewFile,BufReadPost *.hbs setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.css setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.scss setl shiftwidth=2 expandtab
 " }}}
+
+au BufNewFile,BufRead *.vue setf vue
+autocmd BufEnter * :syntax sync fromstart
+
+" Open Vim configuration file for editing
+nnoremap <silent><leader>2 :e ~/.vimrc<CR>
+" Source Vim configuration file and install plugins
+nnoremap <silent><leader>1 :source ~/.vimrc \| :PlugInstall<CR>
+
+" CoC extensions
+let g:coc_global_extensions = ['coc-solargraph', 'coc-tsserver', 'coc-json']
+
+" Add CoC Prettier if prettier is installed
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
+
+" Add CoC ESLint if ESLint is installed
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Remap keys for applying codeAction to the current line.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Show autocomplete when Tab is pressed
+" inoremap <silent><expr> <Tab> coc#refresh()
+" Use <Tab> and <S-Tab> for navigate completion list                            
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"                        
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
